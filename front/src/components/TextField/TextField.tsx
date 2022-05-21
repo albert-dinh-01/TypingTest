@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from "react";
 
 const TextField = () => {
-  return (
-    <div id="textField" className="">TextField</div>
-  )
-}
+	const [userInput, setUserInput] = useState("");
+	return (
+		<div id="textFieldContainer" className="">
+			<p id="displayedTest" className="">
+				{userInput}
+			</p>
+			<input
+				type="text"
+				value={userInput}
+				onChange={(e) => setUserInput(e.target.value)}
+			/>
+		</div>
+	);
+};
 
-export default TextField
+export default TextField;

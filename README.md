@@ -1,6 +1,8 @@
 # Meme generator
 
-Meme generator displays trending memes off of the internet. Testing remote!
+Meme generator displays trending memes off of the internet
+
+GOD BLESS AMERICA!
 
 # Technologies used
 - TypeScript React

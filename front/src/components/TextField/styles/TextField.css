@@ -1,13 +1,11 @@
 .correct {
   font-weight: bold;
   color: green;
-  background-color: black;
 }
 
 .incorrect {
   font-weight: bold;
   color: red;
-  background-color: black;
 }
 
 .active {

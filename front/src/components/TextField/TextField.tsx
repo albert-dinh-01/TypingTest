@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./styles/TextField.css";
 
 const getText = () =>
@@ -6,7 +6,7 @@ const getText = () =>
 		.split(" ")
 		.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
-const Word = (props: any) => {
+let Word = (props: any): any => {
 	const { text, active, correct } = props;
 
 	if (correct === true) {
@@ -22,11 +22,14 @@ const Word = (props: any) => {
 	return <span>{text} </span>;
 };
 
+Word = React.memo(Word);
+
 const TextField = () => {
 	const [userInput, setUserInput] = useState("");
 	const text = useRef(getText());
 	const [activeWordIndex, setActiveWordIndex] = useState(0);
 	const [correctWordArray, setCorrectWordArray] = useState([]);
+
 	const processInput = (e: string): void => {
 		if (e.endsWith(" ")) {
 			setActiveWordIndex((index) => index + 1);

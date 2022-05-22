@@ -33,7 +33,16 @@ const Timer = (props: any) => {
 			}, 1000);
 		}
 	}, [props.startCount]);
-	return <p>Timer: {timer}</p>;
+	return (
+		<div className="" id="timeAndWpm">
+			<p className="" id="Timer">
+				Timer: {timer}
+			</p>
+			<p className="" id="Speed">
+				WPM: {}
+			</p>
+		</div>
+	);
 };
 
 const TextField = () => {

@@ -25,7 +25,7 @@ let Word = (props: any): any => {
 Word = React.memo(Word);
 
 const Timer = (props: any) => {
-	const { correctWords, startCount } = props;
+	const { correctWords, startCount, noKeyStrokes } = props;
 	const [timer, setTimer] = useState(0);
 	useEffect(() => {
 		let id: any;
@@ -48,6 +48,9 @@ const Timer = (props: any) => {
 			<p className="" id="Speed">
 				WPM: {(correctWords / minutesElapsed || 0).toFixed(0)}
 			</p>
+			<p className="" id="keystrokes">
+				{noKeyStrokes} keystrokes
+			</p>
 		</div>
 	);
 };
@@ -58,6 +61,7 @@ const TextField = () => {
 	const [activeWordIndex, setActiveWordIndex] = useState(0);
 	const [correctWordArray, setCorrectWordArray] = useState([]);
 	const [startCountYet, setStartCountYet] = useState(false);
+	const [countKeyStrokes, setCountKeyStrokes] = useState(0);
 
 	const processInput = (e: string): void => {
 		if (activeWordIndex === text.current.length) {
@@ -94,6 +98,7 @@ const TextField = () => {
 			<Timer
 				startCount={startCountYet}
 				correctWords={correctWordArray.filter(Boolean).length}
+				noKeyStrokes={countKeyStrokes}
 			/>
 			<p id="displayedTest" className="">
 				{text.current.map((word, index) => {
@@ -113,6 +118,7 @@ const TextField = () => {
 				onChange={(e) => {
 					setUserInput(e.target.value);
 					processInput(e.target.value);
+					setCountKeyStrokes((old) => old + 1);
 				}}
 			/>
 		</div>

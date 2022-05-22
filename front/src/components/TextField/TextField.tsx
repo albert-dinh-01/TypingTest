@@ -25,13 +25,15 @@ let Word = (props: any): any => {
 Word = React.memo(Word);
 
 const Timer = (props: any) => {
-	const [wpm, setWpm] = useState(0);
+	const [timer, setTimer] = useState(0);
 	useEffect(() => {
 		if (props.startCount) {
-			setInterval(() => {}, 1000);
+			setInterval(() => {
+				setTimer((lastSpeed) => lastSpeed + 1);
+			}, 1000);
 		}
 	}, [props.startCount]);
-	return <p>WPM: {wpm}</p>;
+	return <p>Timer: {timer}</p>;
 };
 
 const TextField = () => {
@@ -63,7 +65,7 @@ const TextField = () => {
 
 	return (
 		<div id="textFieldContainer" className="">
-			<Timer startCount={false} />
+			<Timer startCount={startCountYet} />
 			<p id="displayedTest" className="">
 				{text.current.map((word, index) => {
 					return (

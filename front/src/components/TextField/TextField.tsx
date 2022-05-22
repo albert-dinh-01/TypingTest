@@ -34,13 +34,14 @@ const Timer = (props: any) => {
 			}, 1000);
 		}
 	}, [startCount]);
+	const minutesElapsed = timer / 60;
 	return (
 		<div className="" id="timeAndWpm">
 			<p className="" id="Timer">
 				Timer: {timer}
 			</p>
 			<p className="" id="Speed">
-				WPM: {correctWords || 0}
+				WPM: {(correctWords / minutesElapsed || 0).toFixed(0)}
 			</p>
 		</div>
 	);

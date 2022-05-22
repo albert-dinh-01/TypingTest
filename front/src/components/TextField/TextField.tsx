@@ -8,11 +8,17 @@ const getText = () =>
 const TextField = () => {
 	const [userInput, setUserInput] = useState("");
 	const text = useRef(getText());
+	const [activeWordIndex, setActiveWordIndex] = useState(0);
 
 	return (
 		<div id="textFieldContainer" className="">
 			<p id="displayedTest" className="">
-				{text.current.join(" ")}
+				{text.current.map((word, index) => {
+					if (index === activeWordIndex) {
+						return <b>{word} </b>;
+					}
+					return <span>{word} </span>;
+				})}
 			</p>
 			<input
 				type="text"

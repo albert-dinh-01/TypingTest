@@ -28,11 +28,16 @@ const Timer = (props: any) => {
 	const { correctWords, startCount } = props;
 	const [timer, setTimer] = useState(0);
 	useEffect(() => {
+		let id: any;
 		if (startCount) {
-			setInterval(() => {
+			id = setInterval(() => {
 				setTimer((lastSpeed) => lastSpeed + 1);
 			}, 1000);
 		}
+
+		return () => {
+			clearInterval(id);
+		};
 	}, [startCount]);
 	const minutesElapsed = timer / 60;
 	return (
@@ -60,6 +65,11 @@ const TextField = () => {
 		}
 
 		if (e.endsWith(" ")) {
+			if (activeWordIndex === text.current.length - 1) {
+				setStartCountYet(false);
+				setUserInput("HOORAY!");
+				return;
+			}
 			setActiveWordIndex((index) => index + 1);
 			setUserInput("");
 

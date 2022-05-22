@@ -5,10 +5,16 @@ const getText = () =>
 		.split(" ")
 		.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
+const Word = (props: any) => {
+	const { text, active } = props;
+	return <span style={{ fontWeight: active ? "bold" : "normal" }}>{text} </span>;
+};
+
 const TextField = () => {
 	const [userInput, setUserInput] = useState("");
 	const text = useRef(getText());
 	const [activeWordIndex, setActiveWordIndex] = useState(0);
+
 	const processInput = (e: string): void => {
 		if (e.endsWith(" ")) {
 			setActiveWordIndex((index) => index + 1);
@@ -22,10 +28,7 @@ const TextField = () => {
 		<div id="textFieldContainer" className="">
 			<p id="displayedTest" className="">
 				{text.current.map((word, index) => {
-					if (index === activeWordIndex) {
-						return <b>{word} </b>;
-					}
-					return <span>{word} </span>;
+					return <Word text={word} active={index === activeWordIndex} />;
 				})}
 			</p>
 			<input

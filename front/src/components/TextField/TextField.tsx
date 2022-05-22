@@ -2,10 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import "./styles/TextField.css";
 
 const getText = () =>
-	`Sleep deprivation causes all sorts of challenges and problems When one get enough sleep mind work clearly Studies have shown that after staying awake for 24 hours ability to do simple math is greatly impaired Driving tired has been shown to be as bad as driving drunk Moods change depression anxiety and mania can be induced by lack of sleep As much as people try to do without enough sleep it is a wonder more crazy things happen in this world There was something in the tree It was difficult to tell from the ground but Rachael could see movement She squinted her eyes and peered in the direction of the movement trying to decipher exactly what she had spied The more she peered however the more she thought it might be a figment of her imagination Nothing seemed to move until the moment she began to take her eyes off the tree Then in the corner of her eye she would see the movement again and begin the process of staring again`
+	`Sleep deprivation causes all sorts of challenges and problems`
 		.split(" ")
 		.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
+/**
+When one get enough sleep mind work clearly Studies have shown that after staying awake for 24 hours ability to do simple math is greatly impaired Driving tired has been shown to be as bad as driving drunk Moods change depression anxiety and mania can be induced by lack of sleep As much as people try to do without enough sleep it is a wonder more crazy things happen in this world There was something in the tree It was difficult to tell from the ground but Rachael could see movement She squinted her eyes and peered in the direction of the movement trying to decipher exactly what she had spied The more she peered however the more she thought it might be a figment of her imagination Nothing seemed to move until the moment she began to take her eyes off the tree Then in the corner of her eye she would see the movement again and begin the process of staring again
+ */
 let Word = (props: any): any => {
 	const { text, active, correct } = props;
 
@@ -25,7 +28,7 @@ let Word = (props: any): any => {
 Word = React.memo(Word);
 
 const Timer = (props: any) => {
-	const { correctWords, startCount, noKeyStrokes } = props;
+	const { correctWords, startCount, noKeyStrokes, totalWordsCovered } = props;
 	const [timer, setTimer] = useState(0);
 	useEffect(() => {
 		let id: any;
@@ -50,6 +53,9 @@ const Timer = (props: any) => {
 			</p>
 			<p className="" id="keystrokes">
 				{noKeyStrokes} keystrokes
+			</p>
+			<p className="" id="totalWordsCovered">
+				{totalWordsCovered || 0} words covered in total
 			</p>
 		</div>
 	);
@@ -76,7 +82,6 @@ const TextField = () => {
 			if (activeWordIndex === text.current.length - 1) {
 				setStartCountYet(false);
 				setUserInput("HOORAY!");
-				return;
 			} else {
 				setUserInput("");
 			}
@@ -99,6 +104,7 @@ const TextField = () => {
 				startCount={startCountYet}
 				correctWords={correctWordArray.filter(Boolean).length}
 				noKeyStrokes={countKeyStrokes}
+				totalWordsCovered={correctWordArray.length}
 			/>
 			<p id="displayedTest" className="">
 				{text.current.map((word, index) => {

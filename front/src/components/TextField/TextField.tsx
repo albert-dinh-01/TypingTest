@@ -49,7 +49,11 @@ const Timer = (props: any) => {
 				Timer: {timer}
 			</p>
 			<p className="" id="Speed">
-				WPM: {(correctWords / minutesElapsed || 0).toFixed(0)}
+				WPM:{" "}
+				{(
+					noKeyStrokes / (5 * minutesElapsed) -
+						(totalWordsCovered - correctWords) / minutesElapsed || 0
+				).toFixed(0)}
 			</p>
 			<p className="" id="keystrokes">
 				{noKeyStrokes} keystrokes

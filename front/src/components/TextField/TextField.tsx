@@ -24,11 +24,22 @@ let Word = (props: any): any => {
 
 Word = React.memo(Word);
 
+const Timer = (props: any) => {
+	const [wpm, setWpm] = useState(0);
+	useEffect(() => {
+		if (props.startCount) {
+			setInterval(() => {}, 1000);
+		}
+	}, [props.startCount]);
+	return <p>WPM: {wpm}</p>;
+};
+
 const TextField = () => {
 	const [userInput, setUserInput] = useState("");
 	const text = useRef(getText());
 	const [activeWordIndex, setActiveWordIndex] = useState(0);
 	const [correctWordArray, setCorrectWordArray] = useState([]);
+	const [startCountYet, setStartCountYet] = useState(false);
 
 	const processInput = (e: string): void => {
 		if (e.endsWith(" ")) {
@@ -48,6 +59,7 @@ const TextField = () => {
 
 	return (
 		<div id="textFieldContainer" className="">
+			<Timer startCount={false} />
 			<p id="displayedTest" className="">
 				{text.current.map((word, index) => {
 					return (

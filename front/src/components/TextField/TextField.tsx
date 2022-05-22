@@ -55,15 +55,6 @@ const Timer = (props: any) => {
 						(totalWordsCovered - correctWords) / minutesElapsed || 0
 				).toFixed(0)}
 			</p>
-			<p className="" id="keystrokes">
-				{noKeyStrokes} keystrokes
-			</p>
-			<p className="" id="totalWordsCovered">
-				{totalWordsCovered || 0} words covered in total
-			</p>
-			<p className="" id="correctWords">
-				{correctWords || 0} correct words
-			</p>
 		</div>
 	);
 };

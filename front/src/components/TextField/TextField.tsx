@@ -57,6 +57,9 @@ const Timer = (props: any) => {
 			<p className="" id="totalWordsCovered">
 				{totalWordsCovered || 0} words covered in total
 			</p>
+			<p className="" id="correctWords">
+				{correctWords || 0} correct words
+			</p>
 		</div>
 	);
 };

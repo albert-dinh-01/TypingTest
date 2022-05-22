@@ -42,6 +42,8 @@ const TextField = () => {
 	const [startCountYet, setStartCountYet] = useState(false);
 
 	const processInput = (e: string): void => {
+		setStartCountYet(true);
+		
 		if (e.endsWith(" ")) {
 			setActiveWordIndex((index) => index + 1);
 			setUserInput("");

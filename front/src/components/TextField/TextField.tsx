@@ -9,6 +9,14 @@ const TextField = () => {
 	const [userInput, setUserInput] = useState("");
 	const text = useRef(getText());
 	const [activeWordIndex, setActiveWordIndex] = useState(0);
+	const processInput = (e: string): void => {
+		if (e.endsWith(" ")) {
+			setActiveWordIndex((index) => index + 1);
+			setUserInput("");
+		} else {
+			setUserInput(e);
+		}
+	};
 
 	return (
 		<div id="textFieldContainer" className="">
@@ -22,8 +30,12 @@ const TextField = () => {
 			</p>
 			<input
 				type="text"
+				name="mainTextField"
 				value={userInput}
-				onChange={(e) => setUserInput(e.target.value)}
+				onChange={(e) => {
+					setUserInput(e.target.value);
+					processInput(e.target.value);
+				}}
 			/>
 		</div>
 	);

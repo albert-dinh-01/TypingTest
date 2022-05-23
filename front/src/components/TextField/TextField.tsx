@@ -4,7 +4,10 @@ import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 
-// TODO: Fixing the negative value for incorrect word
+// TODO: Give another 10 words once all 10 words are covered
+// TODO: Only allow the timer to go to 60 seconds
+// TODO: Reset when the timer reaches 60 seconds
+
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems`
 		.split(" ")
@@ -151,6 +154,7 @@ const TextFieldComponent = () => {
 				id="standard-basic"
 				label="Type here"
 				variant="standard"
+				autoFocus={true}
 			/>
 			<IconButton
 				aria-label="delete"

@@ -124,13 +124,15 @@ const TextFieldComponent = () => {
 	};
 
 	return (
-		<div id="textFieldContainer" className="">
-			<Timer
-				startCount={startCountYet}
-				correctWords={correctWordArray.filter(Boolean).length}
-				noKeyStrokes={countKeyStrokes}
-				totalWordsCovered={correctWordArray.length}
-			/>
+		<div id="textFieldContainer" className="absolute bg-red-600">
+			<div className="" id="timer">
+				<Timer
+					startCount={startCountYet}
+					correctWords={correctWordArray.filter(Boolean).length}
+					noKeyStrokes={countKeyStrokes}
+					totalWordsCovered={correctWordArray.length}
+				/>
+			</div>
 			<p id="displayedTest" className="">
 				{text.current.map((word, index) => {
 					return (
@@ -142,29 +144,33 @@ const TextFieldComponent = () => {
 					);
 				})}
 			</p>
-			<TextField
-				type="text"
-				name="mainTextField"
-				value={userInput}
-				onChange={(e) => {
-					setUserInput(e.target.value);
-					processInput(e.target.value);
-					setCountKeyStrokes((old) => old + 1);
-				}}
-				id="standard-basic"
-				label="Type here"
-				variant="standard"
-				autoFocus={true}
-			/>
-			<IconButton
-				aria-label="delete"
-				size="large"
-				onClick={(e) => {
-					resetApp(e);
-				}}
-			>
-				<RestartAltIcon />
-			</IconButton>
+			<div className="p-0 m-0" id="textField">
+				<TextField
+					type="text"
+					name="mainTextField"
+					value={userInput}
+					onChange={(e) => {
+						setUserInput(e.target.value);
+						processInput(e.target.value);
+						setCountKeyStrokes((old) => old + 1);
+					}}
+					id="standard-basic"
+					label="Type here"
+					variant="standard"
+					autoFocus={true}
+				/>
+			</div>
+			<div className="p-0 m-0" id="resetButton">
+				<IconButton
+					aria-label="delete"
+					size="large"
+					onClick={(e) => {
+						resetApp(e);
+					}}
+				>
+					<RestartAltIcon />
+				</IconButton>
+			</div>
 		</div>
 	);
 };

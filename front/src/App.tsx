@@ -6,7 +6,7 @@ import Footer from "./components/Footer/Footer";
 
 const App = () => {
 	return (
-		<div className="" id="app">
+		<div className="relative w-auto h-auto min-h-[500px]" id="app">
 			<WelcomeText />
 			<TextField />
 			<Footer />

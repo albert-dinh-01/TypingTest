@@ -42,6 +42,9 @@ const Timer = (props: any) => {
 			}, 1000);
 		}
 
+		if (!startCount) {
+			clearInterval(id);
+		}
 		return () => {
 			clearInterval(id);
 		};
@@ -100,6 +103,16 @@ const TextFieldComponent = () => {
 		}
 	};
 
+	const resetApp = (event: any) => {
+		event.preventDefault();
+		text.current = getText();
+		setActiveWordIndex(0);
+		setCorrectWordArray([]);
+		setStartCountYet(false);
+		setCountKeyStrokes(0);
+		setUserInput("");
+	};
+
 	return (
 		<div id="textFieldContainer" className="">
 			<Timer
@@ -132,7 +145,13 @@ const TextFieldComponent = () => {
 				label="Type here"
 				variant="standard"
 			/>
-			<IconButton aria-label="delete" size="large">
+			<IconButton
+				aria-label="delete"
+				size="large"
+				onClick={(e) => {
+					resetApp(e);
+				}}
+			>
 				<RestartAltIcon />
 			</IconButton>
 		</div>

@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./styles/TextField.css";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
+import IconButton from "@mui/material/IconButton";
 
+// TODO: Add a reset button
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems`
 		.split(" ")
@@ -59,7 +62,7 @@ const Timer = (props: any) => {
 	);
 };
 
-const TextField = () => {
+const TextFieldComponent = () => {
 	const [userInput, setUserInput] = useState("");
 	const text = useRef(getText());
 	const [activeWordIndex, setActiveWordIndex] = useState(0);
@@ -125,8 +128,11 @@ const TextField = () => {
 					setCountKeyStrokes((old) => old + 1);
 				}}
 			/>
+			<IconButton aria-label="delete" size="large">
+				<RestartAltIcon />
+			</IconButton>
 		</div>
 	);
 };
 
-export default TextField;
+export default TextFieldComponent;

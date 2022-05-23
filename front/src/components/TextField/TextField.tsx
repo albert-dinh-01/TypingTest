@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "./styles/TextField.css";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import IconButton from "@mui/material/IconButton";
+import TextField from "@mui/material/TextField";
 
 // TODO: Add a reset button
 const getText = () =>
@@ -118,7 +119,7 @@ const TextFieldComponent = () => {
 					);
 				})}
 			</p>
-			<input
+			<TextField
 				type="text"
 				name="mainTextField"
 				value={userInput}
@@ -127,6 +128,9 @@ const TextFieldComponent = () => {
 					processInput(e.target.value);
 					setCountKeyStrokes((old) => old + 1);
 				}}
+				id="standard-basic"
+				label="Type here"
+				variant="standard"
 			/>
 			<IconButton aria-label="delete" size="large">
 				<RestartAltIcon />

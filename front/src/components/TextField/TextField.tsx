@@ -43,8 +43,9 @@ const Timer = (props: any) => {
 		}
 
 		if (!startCount) {
-			clearInterval(id);
+			setTimer(0);
 		}
+
 		return () => {
 			clearInterval(id);
 		};
@@ -86,7 +87,7 @@ const TextFieldComponent = () => {
 		if (e.endsWith(" ")) {
 			if (activeWordIndex === text.current.length - 1) {
 				setStartCountYet(false);
-				setUserInput("HOORAY!");
+				setUserInput("");
 			} else {
 				setUserInput("");
 			}

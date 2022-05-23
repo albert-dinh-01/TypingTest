@@ -4,7 +4,7 @@ import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 
-// TODO: Add a reset button
+// TODO: Fixing the negative value for incorrect word
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems`
 		.split(" ")
@@ -51,6 +51,7 @@ const Timer = (props: any) => {
 		};
 	}, [startCount]);
 	const minutesElapsed = timer / 60;
+
 	return (
 		<div className="" id="timeAndWpm">
 			<p className="" id="Timer">
@@ -58,10 +59,15 @@ const Timer = (props: any) => {
 			</p>
 			<p className="" id="Speed">
 				WPM:{" "}
-				{(
+				{Number(
 					noKeyStrokes / (5 * minutesElapsed) -
 						(totalWordsCovered - correctWords) / minutesElapsed || 0
-				).toFixed(0)}
+				) <= 0
+					? 0
+					: Number(
+							noKeyStrokes / (5 * minutesElapsed) -
+								(totalWordsCovered - correctWords) / minutesElapsed
+					  ).toFixed(0)}
 			</p>
 		</div>
 	);

@@ -124,7 +124,7 @@ const TextFieldComponent = () => {
 	};
 
 	return (
-		<div id="textFieldContainer" className="relative bg-red-600 top-[20vh] w-[65vw] max-w-3xl">
+		<div id="textFieldContainer" className="relative bg-red-600 top-0 h-auto max-h-[50%] w-[55vw] max-w-3xl">
 			<div className="" id="timer">
 				<Timer
 					startCount={startCountYet}

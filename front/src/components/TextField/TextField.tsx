@@ -128,7 +128,7 @@ const TextFieldComponent = () => {
 			id="textFieldContainer"
 			className="relative bg-red-600 top-[30%] left-[10%] h-auto max-h-[50%] w-[80vw] p-9"
 		>
-			<div className="" id="timer">
+			<div className="bg-blue-500" id="timer">
 				<Timer
 					startCount={startCountYet}
 					correctWords={correctWordArray.filter(Boolean).length}
@@ -136,43 +136,49 @@ const TextFieldComponent = () => {
 					totalWordsCovered={correctWordArray.length}
 				/>
 			</div>
-			<p id="displayedTest" className="">
-				{text.current.map((word, index) => {
-					return (
-						<Word
-							text={word}
-							active={index === activeWordIndex}
-							correct={correctWordArray[index]}
+
+			<div className="" id="typingContainer">
+				<p id="displayedTest" className="bg-lime-800">
+					{text.current.map((word, index) => {
+						return (
+							<Word
+								text={word}
+								active={index === activeWordIndex}
+								correct={correctWordArray[index]}
+							/>
+						);
+					})}
+				</p>
+
+				<div className="bg-stone-600" id="textFieldAndRefreshButton">
+					<div className="p-0 m-0" id="textField">
+						<TextField
+							type="text"
+							name="mainTextField"
+							value={userInput}
+							onChange={(e) => {
+								setUserInput(e.target.value);
+								processInput(e.target.value);
+								setCountKeyStrokes((old) => old + 1);
+							}}
+							id="standard-basic"
+							label="Type here"
+							variant="standard"
+							autoFocus={true}
 						/>
-					);
-				})}
-			</p>
-			<div className="p-0 m-0" id="textField">
-				<TextField
-					type="text"
-					name="mainTextField"
-					value={userInput}
-					onChange={(e) => {
-						setUserInput(e.target.value);
-						processInput(e.target.value);
-						setCountKeyStrokes((old) => old + 1);
-					}}
-					id="standard-basic"
-					label="Type here"
-					variant="standard"
-					autoFocus={true}
-				/>
-			</div>
-			<div className="p-0 m-0" id="resetButton">
-				<IconButton
-					aria-label="delete"
-					size="large"
-					onClick={(e) => {
-						resetApp(e);
-					}}
-				>
-					<RestartAltIcon />
-				</IconButton>
+					</div>
+					<div className="p-0 m-0" id="resetButton">
+						<IconButton
+							aria-label="delete"
+							size="large"
+							onClick={(e) => {
+								resetApp(e);
+							}}
+						>
+							<RestartAltIcon />
+						</IconButton>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

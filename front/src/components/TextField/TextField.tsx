@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 
 // TODO: Give another 10 words once all 10 words are covered
 // TODO: Only allow the timer to go to 60 seconds
-// TODO: Reset when the timer reaches 60 seconds
+// TODO: Make the timer squared always
 
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems`

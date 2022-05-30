@@ -128,7 +128,10 @@ const TextFieldComponent = () => {
 			id="textFieldContainer"
 			className="relative bg-red-600 top-[30%] left-[10%] h-auto max-h-[50%] w-[80vw] p-9 flex justify-evenly"
 		>
-			<div className="bg-blue-500" id="timer">
+			<div
+				className="bg-blue-500 max-w-[250px] min-w-[100px] w-[12vw]"
+				id="timer"
+			>
 				<Timer
 					startCount={startCountYet}
 					correctWords={correctWordArray.filter(Boolean).length}

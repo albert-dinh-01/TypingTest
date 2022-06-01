@@ -129,7 +129,7 @@ const TextFieldComponent = () => {
 			className="relative bg-red-600 top-[30%] left-[10%] h-auto max-h-[50%] w-[80vw] p-9 flex justify-evenly"
 		>
 			<div
-				className="bg-blue-500 max-w-[250px] min-w-[100px] w-[12vw]"
+				className="bg-blue-500 w-[200px] h-[200px]"
 				id="timer"
 			>
 				<Timer

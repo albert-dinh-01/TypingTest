@@ -126,12 +126,9 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="relative bg-red-600 top-[30%] left-[10%] h-auto max-h-[50%] w-[80vw] p-9 flex justify-evenly"
+			className="relative bg-red-600 top-0 left-[10%] h-auto w-[80vw] p-9 flex justify-evenly"
 		>
-			<div
-				className="bg-blue-500 w-[200px] h-[200px]"
-				id="timer"
-			>
+			<div className="bg-blue-500 w-[300px] h-[300px]" id="timer">
 				<Timer
 					startCount={startCountYet}
 					correctWords={correctWordArray.filter(Boolean).length}
@@ -140,7 +137,7 @@ const TextFieldComponent = () => {
 				/>
 			</div>
 
-			<div className="" id="typingContainer">
+			<div className="w-[45vw] h-[300px] bg-black" id="typingContainer">
 				<p id="displayedTest" className="bg-lime-800">
 					{text.current.map((word, index) => {
 						return (

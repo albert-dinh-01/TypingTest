@@ -56,7 +56,7 @@ const Timer = (props: any) => {
 	const minutesElapsed = timer / 60;
 
 	return (
-		<div className="" id="timeAndWpm">
+		<div className="bg-green-200 h-full" id="timeAndWpm">
 			<p className="" id="Timer">
 				Timer: {timer}
 			</p>
@@ -128,7 +128,7 @@ const TextFieldComponent = () => {
 			id="textFieldContainer"
 			className="absolute bg-red-600 top-[15%] left-[10%] h-auto max-h-[50%] w-[80vw] p-9 flex justify-evenly"
 		>
-			<div className="bg-cyan-900 w-[300px] h-[300px]" id="timer">
+			<div className="bg-fuchsia-900 w-[30%] h-auto" id="timer">
 				<Timer
 					startCount={startCountYet}
 					correctWords={correctWordArray.filter(Boolean).length}

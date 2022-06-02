@@ -128,7 +128,7 @@ const TextFieldComponent = () => {
 			id="textFieldContainer"
 			className="absolute bg-red-600 top-[15%] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1"
 		>
-			<div className="bg-fuchsia-900 w-[30%] h-auto" id="timer">
+			<div className="bg-fuchsia-900 w-[30%] h-auto sm:w-full" id="timer">
 				<Timer
 					startCount={startCountYet}
 					correctWords={correctWordArray.filter(Boolean).length}
@@ -137,7 +137,7 @@ const TextFieldComponent = () => {
 				/>
 			</div>
 
-			<div className="w-[45vw] h-auto bg-black" id="typingContainer">
+			<div className="w-[45vw] h-auto bg-black sm:w-full" id="typingContainer">
 				<p id="displayedTest" className="bg-lime-800 h-[50%]">
 					{text.current.map((word, index) => {
 						return (

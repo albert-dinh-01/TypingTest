@@ -6,7 +6,6 @@ import TextField from "@mui/material/TextField";
 
 // TODO: Give another 10 words once all 10 words are covered
 // TODO: Only allow the timer to go to 60 seconds
-// TODO: Make the app vertically responsive
 
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems`
@@ -126,7 +125,7 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="absolute bg-red-600 top-[15%] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1"
+			className="absolute bg-red-600 top-[15%] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%]"
 		>
 			<div className="bg-fuchsia-900 w-[30%] h-auto sm:w-full" id="timer">
 				<Timer

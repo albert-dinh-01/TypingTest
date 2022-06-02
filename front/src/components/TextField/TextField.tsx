@@ -126,7 +126,7 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="absolute bg-red-600 top-[15vh] left-[10%] h-auto w-[80vw] p-9 flex justify-evenly"
+			className="absolute bg-red-600 top-[15%] left-[10%] h-auto max-h-[50%] w-[80vw] p-9 flex justify-evenly"
 		>
 			<div className="bg-cyan-900 w-[300px] h-[300px]" id="timer">
 				<Timer

@@ -153,7 +153,7 @@ const TextFieldComponent = () => {
 					className="bg-stone-600 h-[50%] flex"
 					id="textFieldAndRefreshButton"
 				>
-					<div className="w-[80%]" id="textField">
+					<div className="w-[80%] p-0 m-0" id="textField">
 						<TextField
 							type="text"
 							name="mainTextField"
@@ -167,10 +167,10 @@ const TextFieldComponent = () => {
 							label="Type here"
 							variant="standard"
 							autoFocus={true}
-							className="w-full"
+							className="w-full m-0 p-0"
 						/>
 					</div>
-					<div className="p-0 m-0 w-[20%]" id="resetButton">
+					<div className="p-0 m-0 w-[20%] bg-red-400" id="resetButton">
 						<IconButton
 							aria-label="delete"
 							size="large"

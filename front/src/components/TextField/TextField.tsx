@@ -6,7 +6,6 @@ import TextField from "@mui/material/TextField";
 
 // TODO: Give another 10 words once all 10 words are covered
 // TODO: Only allow the timer to go to 60 seconds
-// TODO: Make the timer squared always
 
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems`
@@ -165,6 +164,7 @@ const TextFieldComponent = () => {
 							label="Type here"
 							variant="standard"
 							autoFocus={true}
+							className="w-[80%]"
 						/>
 					</div>
 					<div className="p-0 m-0" id="resetButton">

@@ -126,7 +126,7 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="absolute bg-red-600 top-[15%] left-[10%] h-auto max-h-[50%] w-[80vw] p-9 flex justify-evenly"
+			className="absolute bg-red-600 top-[15%] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly"
 		>
 			<div className="bg-fuchsia-900 w-[30%] h-auto" id="timer">
 				<Timer
@@ -137,7 +137,7 @@ const TextFieldComponent = () => {
 				/>
 			</div>
 
-			<div className="w-[45vw] h-[300px] bg-black" id="typingContainer">
+			<div className="w-[45vw] h-auto bg-black" id="typingContainer">
 				<p id="displayedTest" className="bg-lime-800 h-[50%]">
 					{text.current.map((word, index) => {
 						return (

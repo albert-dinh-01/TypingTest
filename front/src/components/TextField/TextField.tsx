@@ -138,7 +138,7 @@ const TextFieldComponent = () => {
 			</div>
 
 			<div className="w-[45vw] h-[300px] bg-black" id="typingContainer">
-				<p id="displayedTest" className="bg-lime-800">
+				<p id="displayedTest" className="bg-lime-800 h-[30%]">
 					{text.current.map((word, index) => {
 						return (
 							<Word

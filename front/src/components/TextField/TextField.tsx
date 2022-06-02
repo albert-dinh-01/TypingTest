@@ -167,7 +167,7 @@ const TextFieldComponent = () => {
 							label="Type here"
 							variant="standard"
 							autoFocus={true}
-							className="w-full m-0 p-0"
+							className="w-full m-0 p-0 bg-lime-500"
 						/>
 					</div>
 					<div className="p-0 m-0 w-[20%] bg-red-400" id="resetButton">

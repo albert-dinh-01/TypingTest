@@ -3,6 +3,8 @@ import "./styles/TextField.css";
 import RestartAltIcon from "@mui/icons-material/RestartAlt";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 
 // TODO: Give another 10 words once all 10 words are covered
 // TODO: Only allow the timer to go to 60 seconds
@@ -34,9 +36,25 @@ let Word = (props: any): any => {
 
 Word = React.memo(Word);
 
+const style = {
+	position: "absolute",
+	top: "50%",
+	left: "50%",
+	transform: "translate(-50%, -50%)",
+	width: 400,
+	bgcolor: "background.paper",
+	border: "2px solid #000",
+	boxShadow: 24,
+	p: 4
+};
+
 const Timer = (props: any) => {
 	const { correctWords, startCount, noKeyStrokes, totalWordsCovered } = props;
 	const [timer, setTimer] = useState(0);
+	const [open, setOpen] = React.useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
+
 	useEffect(() => {
 		let id: any;
 		if (startCount) {
@@ -55,6 +73,11 @@ const Timer = (props: any) => {
 	}, [startCount]);
 	const minutesElapsed = timer / 60;
 
+	useEffect(() => {
+		if (timer === 4) {
+			handleOpen();
+		}
+	});
 	return (
 		<div className="timerContainer">
 			<div className="bg-green-200 h-full p-0 m-0" id="timerContainer">
@@ -62,18 +85,27 @@ const Timer = (props: any) => {
 					{timer}
 				</p>
 			</div>
-			<p className="" id="Speed">
-				WPM:{" "}
-				{Number(
-					noKeyStrokes / (5 * minutesElapsed) -
-						(totalWordsCovered - correctWords) / minutesElapsed || 0
-				) <= 0
-					? 0
-					: Number(
+			<Modal
+				open={open}
+				onClose={handleClose}
+				aria-labelledby="modal-modal-title"
+				aria-describedby="modal-modal-description"
+			>
+				<Box sx={style}>
+					<p className="" id="Speed">
+						{" "}
+						{Number(
 							noKeyStrokes / (5 * minutesElapsed) -
-								(totalWordsCovered - correctWords) / minutesElapsed
-					  ).toFixed(0)}
-			</p>
+								(totalWordsCovered - correctWords) / minutesElapsed || 0
+						) <= 0
+							? 0
+							: Number(
+									noKeyStrokes / (5 * minutesElapsed) -
+										(totalWordsCovered - correctWords) / minutesElapsed
+							  ).toFixed(0)}
+					</p>
+				</Box>
+			</Modal>
 		</div>
 	);
 };

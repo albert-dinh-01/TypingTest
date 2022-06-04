@@ -80,7 +80,7 @@ const Timer = (props: any) => {
 	});
 
 	return (
-		<div className="timerContainer">
+		<div className="timerContainer w-full">
 			<div className="bg-green-200 h-full p-0 m-0" id="timerContainer">
 				<p className="text-[15vw] p-0 m-0" id="Timer">
 					{timer}

@@ -56,10 +56,12 @@ const Timer = (props: any) => {
 	const minutesElapsed = timer / 60;
 
 	return (
-		<div className="bg-green-200 h-full" id="timeAndWpm">
-			<p className="text-[15vw]" id="Timer">
-				{timer}
-			</p>
+		<div className="timerContainer">
+			<div className="bg-green-200 h-full" id="timeAndWpm">
+				<p className="text-[15vw]" id="Timer">
+					{timer}
+				</p>
+			</div>
 			<p className="" id="Speed">
 				WPM:{" "}
 				{Number(

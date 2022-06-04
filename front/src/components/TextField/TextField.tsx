@@ -74,10 +74,11 @@ const Timer = (props: any) => {
 	const minutesElapsed = timer / 60;
 
 	useEffect(() => {
-		if (timer === 4) {
+		if (timer === 60) {
 			handleOpen();
 		}
 	});
+
 	return (
 		<div className="timerContainer">
 			<div className="bg-green-200 h-full p-0 m-0" id="timerContainer">
@@ -93,7 +94,6 @@ const Timer = (props: any) => {
 			>
 				<Box sx={style}>
 					<p className="" id="Speed">
-						{" "}
 						{Number(
 							noKeyStrokes / (5 * minutesElapsed) -
 								(totalWordsCovered - correctWords) / minutesElapsed || 0

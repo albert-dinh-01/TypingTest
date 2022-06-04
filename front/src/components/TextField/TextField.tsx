@@ -57,8 +57,8 @@ const Timer = (props: any) => {
 
 	return (
 		<div className="bg-green-200 h-full" id="timeAndWpm">
-			<p className="" id="Timer">
-				Timer: {timer}
+			<p className="text-[15vw]" id="Timer">
+				{timer}
 			</p>
 			<p className="" id="Speed">
 				WPM:{" "}

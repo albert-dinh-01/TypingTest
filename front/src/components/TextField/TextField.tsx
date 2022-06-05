@@ -82,7 +82,7 @@ const Timer = (props: any) => {
 	return (
 		<div className="timerContainer w-full">
 			<div className="bg-green-200 h-full p-0 m-0" id="timerContainer">
-				<p className="text-[15vw] p-0 m-0" id="Timer">
+				<p className="text-[150px] p-0 m-0" id="Timer">
 					{timer}
 				</p>
 			</div>
@@ -160,7 +160,7 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="absolute bg-red-600 top-[140px] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%]"
+			className="absolute bg-red-600 top-[130px] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%]"
 		>
 			<div className="bg-fuchsia-900 w-[30%] h-auto sm:w-full" id="timer">
 				<Timer

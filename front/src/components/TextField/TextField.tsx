@@ -84,7 +84,7 @@ const Timer = (props: any) => {
 	const minutesElapsed = timer / 60;
 
 	useEffect(() => {
-		if (timer === 2) {
+		if (timer === 60) {
 			handleOpen();
 			clearIntervalMethod();
 		}

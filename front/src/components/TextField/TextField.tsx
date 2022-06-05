@@ -145,10 +145,12 @@ const TextFieldComponent = () => {
 
 		if (e.endsWith(" ")) {
 			if (activeWordIndex === text.current.length - 1) {
-				setStartCountYet(false);
-				setUserInput("");
-				console.log("time?", time);
-				
+				// setStartCountYet(false);
+				// setUserInput("");
+				// console.log("time?", time);
+				if (time < 60) {
+					text.current = getText();
+				}
 			} else {
 				setUserInput("");
 			}

@@ -170,7 +170,6 @@ const TextFieldComponent = () => {
 		setStartCountYet(false);
 		setCountKeyStrokes(0);
 		setUserInput("");
-		console.log("if called from Timer!");
 	};
 
 	return (

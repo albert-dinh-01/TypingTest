@@ -3,7 +3,7 @@ import React from "react";
 const WelcomeText = () => {
 	return (
 		<div
-			className="absolute bg-fuchsia-500 left-[30%] h-auto w-auto max-w-[40%] top-[5%] text-5xl"
+			className="absolute bg-fuchsia-500 left-[15%] h-auto w-auto top-[5%] text-[3rem]"
 			id="welcomeContainer"
 		>
 			<p className="" id="welcomeText">

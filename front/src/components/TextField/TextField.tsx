@@ -7,8 +7,6 @@ import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
 // TODO: Give another 10 words once all 10 words are covered
-// TODO: Only allow the timer to go to 60 seconds
-// TODO: Change font size for header text
 
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems`
@@ -49,11 +47,22 @@ const style = {
 };
 
 const Timer = (props: any) => {
-	const { correctWords, startCount, noKeyStrokes, totalWordsCovered } = props;
+	const {
+		correctWords,
+		startCount,
+		noKeyStrokes,
+		totalWordsCovered,
+		resetAppMethod
+	} = props;
 	const [timer, setTimer] = useState(0);
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
+	const handleClose = (e: any) => {
+		setOpen(false);
+		setTimer(0);
+		resetAppMethod(e);
+	};
+	const [intervalId, setIntervalId] = useState(0);
 
 	useEffect(() => {
 		let id: any;
@@ -61,6 +70,7 @@ const Timer = (props: any) => {
 			id = setInterval(() => {
 				setTimer((lastSpeed) => lastSpeed + 1);
 			}, 1000);
+			setIntervalId(id);
 		}
 
 		if (!startCount) {
@@ -74,11 +84,15 @@ const Timer = (props: any) => {
 	const minutesElapsed = timer / 60;
 
 	useEffect(() => {
-		if (timer === 60) {
+		if (timer === 2) {
 			handleOpen();
+			clearIntervalMethod();
 		}
 	});
 
+	const clearIntervalMethod = () => {
+		clearInterval(intervalId);
+	};
 	return (
 		<div className="timerContainer w-full">
 			<div className="bg-green-200 h-full p-0 m-0" id="timerContainer">
@@ -155,6 +169,7 @@ const TextFieldComponent = () => {
 		setStartCountYet(false);
 		setCountKeyStrokes(0);
 		setUserInput("");
+		console.log("if called from Timer!");
 	};
 
 	return (
@@ -168,6 +183,7 @@ const TextFieldComponent = () => {
 					correctWords={correctWordArray.filter(Boolean).length}
 					noKeyStrokes={countKeyStrokes}
 					totalWordsCovered={correctWordArray.length}
+					resetAppMethod={resetApp}
 				/>
 			</div>
 

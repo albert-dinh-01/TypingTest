@@ -53,14 +53,15 @@ const Timer = (props: any) => {
 		startCount,
 		noKeyStrokes,
 		totalWordsCovered,
-		resetAppMethod
+		resetAppMethod,
+		actualTime,
+		setActualTime
 	} = props;
-	const [timer, setTimer] = useState(0);
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = (e: any) => {
 		setOpen(false);
-		setTimer(0);
+		setActualTime(0);
 		resetAppMethod(e);
 	};
 	const [intervalId, setIntervalId] = useState(0);
@@ -69,23 +70,23 @@ const Timer = (props: any) => {
 		let id: any;
 		if (startCount) {
 			id = setInterval(() => {
-				setTimer((lastSpeed) => lastSpeed + 1);
+				setActualTime((lastSpeed: any) => lastSpeed + 1);
 			}, 1000);
 			setIntervalId(id);
 		}
 
 		if (!startCount) {
-			setTimer(0);
+			setActualTime(0);
 		}
 
 		return () => {
 			clearInterval(id);
 		};
 	}, [startCount]);
-	const minutesElapsed = timer / 60;
+	const minutesElapsed = actualTime / 60;
 
 	useEffect(() => {
-		if (timer === 60) {
+		if (actualTime === 60) {
 			handleOpen();
 			clearIntervalMethod();
 		}
@@ -98,7 +99,7 @@ const Timer = (props: any) => {
 		<div className="timerContainer w-full">
 			<div className="bg-green-200 h-full p-0 m-0" id="timerContainer">
 				<p className="text-[150px] p-0 m-0" id="Timer">
-					{timer}
+					{actualTime}
 				</p>
 			</div>
 			<Modal
@@ -132,7 +133,7 @@ const TextFieldComponent = () => {
 	const [correctWordArray, setCorrectWordArray] = useState([]);
 	const [startCountYet, setStartCountYet] = useState(false);
 	const [countKeyStrokes, setCountKeyStrokes] = useState(0);
-
+	const [time, setTimer] = useState(0);
 	const processInput = (e: string): void => {
 		if (activeWordIndex === text.current.length) {
 			return;
@@ -146,6 +147,8 @@ const TextFieldComponent = () => {
 			if (activeWordIndex === text.current.length - 1) {
 				setStartCountYet(false);
 				setUserInput("");
+				console.log("time?", time);
+				
 			} else {
 				setUserInput("");
 			}
@@ -184,6 +187,8 @@ const TextFieldComponent = () => {
 					noKeyStrokes={countKeyStrokes}
 					totalWordsCovered={correctWordArray.length}
 					resetAppMethod={resetApp}
+					actualTime={time}
+					setActualTime={setTimer}
 				/>
 			</div>
 

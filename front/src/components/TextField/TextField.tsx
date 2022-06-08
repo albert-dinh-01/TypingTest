@@ -131,6 +131,7 @@ const TextFieldComponent = () => {
 	const [startCountYet, setStartCountYet] = useState(false);
 	const [countKeyStrokes, setCountKeyStrokes] = useState(0);
 	const [time, setTimer] = useState(0);
+
 	const processInput = (e: string): void => {
 		const maxTime: number = 5;
 		console.log("text current length: ", text.current.length);
@@ -150,16 +151,25 @@ const TextFieldComponent = () => {
 				// setStartCountYet(false);
 				setUserInput("");
 				text.current = getText();
-				setActiveWordIndex(0);
 				setCorrectWordArray([]);
 			} else {
 				setUserInput("");
 			}
-			setActiveWordIndex((index) => index + 1);
+
+			if (activeWordIndex === text.current.length - 1) {
+				setActiveWordIndex(0);
+			}
+
+			if (activeWordIndex === text.current.length - 1) {
+				setActiveWordIndex(0);
+			} else {
+				setActiveWordIndex((index) => index + 1);
+			}
+
 			console.log(
-				"word you typed is: ",
+				"word you typed is:",
 				e.trim(),
-				"and current word is",
+				"and current word is:",
 				text.current[activeWordIndex]
 			);
 			setCorrectWordArray((data) => {

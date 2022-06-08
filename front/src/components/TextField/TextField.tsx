@@ -151,11 +151,17 @@ const TextFieldComponent = () => {
 				setUserInput("");
 				text.current = getText();
 				setActiveWordIndex(0);
+				setCorrectWordArray([]);
 			} else {
 				setUserInput("");
 			}
 			setActiveWordIndex((index) => index + 1);
-
+			console.log(
+				"word you typed is: ",
+				e.trim(),
+				"and current word is",
+				text.current[activeWordIndex]
+			);
 			setCorrectWordArray((data) => {
 				const word = e.trim();
 				let newResult: any = [...data];

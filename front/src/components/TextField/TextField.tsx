@@ -14,9 +14,6 @@ const getText = () =>
 		.sort(() => (Math.random() > 0.5 ? 1 : -1))
 		.slice(0, 10);
 
-/**
-When one get enough sleep mind work clearly Studies have shown that after staying awake for 24 hours ability to do simple math is greatly impaired Driving tired has been shown to be as bad as driving drunk Moods change depression anxiety and mania can be induced by lack of sleep As much as people try to do without enough sleep it is a wonder more crazy things happen in this world There was something in the tree It was difficult to tell from the ground but Rachael could see movement She squinted her eyes and peered in the direction of the movement trying to decipher exactly what she had spied The more she peered however the more she thought it might be a figment of her imagination Nothing seemed to move until the moment she began to take her eyes off the tree Then in the corner of her eye she would see the movement again and begin the process of staring again
- */
 let Word = (props: any): any => {
 	const { text, active, correct } = props;
 
@@ -135,7 +132,11 @@ const TextFieldComponent = () => {
 	const [countKeyStrokes, setCountKeyStrokes] = useState(0);
 	const [time, setTimer] = useState(0);
 	const processInput = (e: string): void => {
-		if (activeWordIndex === text.current.length) {
+		const maxTime: number = 5;
+		console.log("text current length: ", text.current.length);
+		console.log("active word index: ", activeWordIndex);
+
+		if (time === maxTime) {
 			return;
 		}
 
@@ -144,13 +145,12 @@ const TextFieldComponent = () => {
 		}
 
 		if (e.endsWith(" ")) {
+			console.log("he");
 			if (activeWordIndex === text.current.length - 1) {
 				// setStartCountYet(false);
-				// setUserInput("");
-				// console.log("time?", time);
-				if (time < 60) {
-					text.current = getText();
-				}
+				setUserInput("");
+				text.current = getText();
+				setActiveWordIndex(0);
 			} else {
 				setUserInput("");
 			}

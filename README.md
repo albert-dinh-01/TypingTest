@@ -1,6 +1,6 @@
-# Meme generator
+# Typing Speed Measure
 
-Meme generator displays trending memes off of the internet
+Typing Speed Measure is a web application that measures your typing speed
 
 # Technologies used
 - TypeScript React

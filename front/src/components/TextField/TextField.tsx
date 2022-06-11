@@ -222,10 +222,13 @@ const TextFieldComponent = () => {
 				/>
 			</div>
 
-			<div className="w-[45vw] h-[400px] bg-black sm:w-full" id="typingContainer">
+			<div
+				className="w-[45vw] h-[400px] bg-black sm:w-full"
+				id="typingContainer"
+			>
 				<p
 					id="displayedTest"
-					className="bg-lime-800 h-[50%] text-[2rem] sm:text-[1.2rem]"
+					className="bg-lime-800 h-[50%] text-[2rem] sm:text-[1.2rem] text-center pt-14"
 				>
 					{text.current.map((word, index) => {
 						return (

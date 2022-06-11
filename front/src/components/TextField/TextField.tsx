@@ -156,8 +156,6 @@ const TextFieldComponent = () => {
 			if (activeWordIndex === text.current.length - 1) {
 				console.log("9th word");
 				setUserInput("");
-
-				setCorrectWordArray([]);
 			} else {
 				setUserInput("");
 			}
@@ -188,9 +186,10 @@ const TextFieldComponent = () => {
 				newResult[activeWordIndex] = word === text.current[activeWordIndex];
 				return newResult;
 			});
-			
+
 			if (activeWordIndex === text.current.length - 1) {
 				text.current = getText();
+				setCorrectWordArray([]);
 			}
 		} else {
 			console.log("not a space, no spaces allowed!");

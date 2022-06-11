@@ -6,9 +6,7 @@ import TextField from "@mui/material/TextField";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
-// TODO: Fix the problem where the last word of the next 10 words will be coloured red => the last word of the previous 10 words gets compared to the last word of the next 10 words => that's why it turns red
-
-const MAX_TIME: number = 6000;
+const MAX_TIME: number = 10;
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems When one get enough sleep mind work clearly Studies have shown that after staying awake for 24 hours ability to do simple math is greatly impaired Driving tired has been shown to be as bad as driving drunk Moods change depression anxiety and mania can be induced by lack of sleep As much as people try to do without enough sleep it is a wonder more crazy things happen in this world There was something in the tree It was difficult to tell from the ground but Rachael could see movement She squinted her eyes and peered in the direction of the movement trying to decipher exactly what she had spied The more she peered however the more she thought it might be a figment of her imagination Nothing seemed to move until the moment she began to take her eyes off the tree Then in the corner of her eye she would see the movement again and begin the process of staring again`
 		.split(" ")
@@ -224,8 +222,11 @@ const TextFieldComponent = () => {
 				/>
 			</div>
 
-			<div className="w-[45vw] h-auto bg-black sm:w-full" id="typingContainer">
-				<p id="displayedTest" className="bg-lime-800 h-[50%]">
+			<div className="w-[45vw] h-[400px] bg-black sm:w-full" id="typingContainer">
+				<p
+					id="displayedTest"
+					className="bg-lime-800 h-[50%] text-[2rem] sm:text-[1.2rem]"
+				>
 					{text.current.map((word, index) => {
 						return (
 							<Word

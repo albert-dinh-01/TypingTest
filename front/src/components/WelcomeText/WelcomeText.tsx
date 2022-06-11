@@ -9,6 +9,7 @@ const WelcomeText = () => {
 			<p className="" id="welcomeText">
 				Typing Speed Test
 			</p>
+			
 		</div>
 	);
 };

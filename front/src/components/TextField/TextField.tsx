@@ -36,9 +36,8 @@ const style = {
 	top: "50%",
 	left: "50%",
 	transform: "translate(-50%, -50%)",
-	width: 400,
+	width: 150,
 	bgcolor: "background.paper",
-	border: "2px solid #000",
 	boxShadow: 24,
 	p: 4
 };
@@ -114,7 +113,8 @@ const Timer = (props: any) => {
 							: Number(
 									noKeyStrokes / (5 * minutesElapsed) -
 										(totalWordsCovered - correctWords) / minutesElapsed
-							  ).toFixed(0)}
+							  ).toFixed(0)}{" "}
+						WPM
 					</p>
 				</Box>
 			</Modal>
@@ -208,9 +208,9 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="absolute top-[130px] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%] bg-white rounded-2xl"
+			className="absolute top-[130px] left-[10%] h-[70vh] max-h-[50%] w-[55vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%] bg-white rounded-2xl"
 		>
-			<div className="w-[30%] h-auto sm:w-full" id="timer">
+			<div className="w-[45%] h-auto sm:w-full" id="timer">
 				<Timer
 					startCount={startCountYet}
 					correctWords={correctWordArray.filter(Boolean).length}

@@ -93,8 +93,8 @@ const Timer = (props: any) => {
 	};
 	return (
 		<div className="timerContainer w-full">
-			<div className="bg-green-200 h-full p-0 m-0" id="timerContainer">
-				<p className="text-[150px] p-0 m-0" id="Timer">
+			<div className="h-full p-0 m-0" id="timerContainer">
+				<p className="text-[160px] p-0 m-0" id="Timer">
 					{actualTime}
 				</p>
 			</div>
@@ -208,9 +208,9 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="absolute bg-red-600 top-[130px] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%]"
+			className="absolute top-[130px] left-[10%] h-[70vh] max-h-[50%] w-[80vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%] bg-white"
 		>
-			<div className="bg-fuchsia-900 w-[30%] h-auto sm:w-full" id="timer">
+			<div className="w-[30%] h-auto sm:w-full" id="timer">
 				<Timer
 					startCount={startCountYet}
 					correctWords={correctWordArray.filter(Boolean).length}
@@ -223,12 +223,12 @@ const TextFieldComponent = () => {
 			</div>
 
 			<div
-				className="w-[45vw] h-[400px] sm:h-auto bg-black sm:w-full"
+				className="w-[45vw] h-[400px] sm:h-auto sm:w-full"
 				id="typingContainer"
 			>
 				<p
 					id="displayedTest"
-					className="bg-lime-800 h-[50%] text-[2rem] sm:text-[1.2rem] text-center pt-14 sm:pt-2 sm:h-auto"
+					className="h-[50%] text-[2rem] sm:text-[1.2rem] text-center pt-14 sm:pt-2 sm:h-auto"
 				>
 					{text.current.map((word, index) => {
 						return (
@@ -241,10 +241,7 @@ const TextFieldComponent = () => {
 					})}
 				</p>
 
-				<div
-					className="bg-stone-600 h-[50%] flex"
-					id="textFieldAndRefreshButton"
-				>
+				<div className="h-[50%] flex" id="textFieldAndRefreshButton">
 					<div className="w-[80%] p-0 m-0" id="textField">
 						<TextField
 							type="text"
@@ -259,10 +256,10 @@ const TextFieldComponent = () => {
 							label="Type here"
 							variant="standard"
 							autoFocus={true}
-							className="w-full m-0 p-0 bg-lime-500"
+							className="w-full m-0 p-0"
 						/>
 					</div>
-					<div className="p-0 m-0 w-[20%] bg-red-400" id="resetButton">
+					<div className="p-0 m-0 w-[20%]" id="resetButton">
 						<IconButton
 							aria-label="delete"
 							size="large"

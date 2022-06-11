@@ -9,7 +9,7 @@ import Box from "@mui/material/Box";
 // TODO: Identify why I can type more than one space SOMETIMES
 // TODO: Fix the problem where the last word of the next 10 words will be coloured red
 // TODO: Fix the problem where typing separate words doesn't transfer to the next word
-
+const MAX_TIME: number = 6000;
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems When one get enough sleep mind work clearly Studies have shown that after staying awake for 24 hours ability to do simple math is greatly impaired Driving tired has been shown to be as bad as driving drunk Moods change depression anxiety and mania can be induced by lack of sleep As much as people try to do without enough sleep it is a wonder more crazy things happen in this world There was something in the tree It was difficult to tell from the ground but Rachael could see movement She squinted her eyes and peered in the direction of the movement trying to decipher exactly what she had spied The more she peered however the more she thought it might be a figment of her imagination Nothing seemed to move until the moment she began to take her eyes off the tree Then in the corner of her eye she would see the movement again and begin the process of staring again`
 		.split(" ")
@@ -85,7 +85,7 @@ const Timer = (props: any) => {
 	const minutesElapsed = actualTime / 60;
 
 	useEffect(() => {
-		if (actualTime === 6000) {
+		if (actualTime === MAX_TIME) {
 			handleOpen();
 			clearIntervalMethod();
 		}
@@ -135,11 +135,10 @@ const TextFieldComponent = () => {
 	const [time, setTimer] = useState(0);
 
 	const processInput = (e: string): void => {
-		const maxTime: number = 4;
 		console.log("text current length: ", text.current.length);
 		console.log("active word index: ", activeWordIndex);
 
-		if (time === maxTime) {
+		if (time === MAX_TIME) {
 			return;
 		}
 

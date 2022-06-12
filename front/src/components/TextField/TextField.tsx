@@ -239,7 +239,7 @@ const TextFieldComponent = () => {
 			</div>
 
 			<div
-				className="w-[45vw] h-[400px] sm:h-auto sm:w-full"
+				className="w-[45vw] h-[400px] sm:h-auto sm:w-[95%]"
 				id="typingContainer"
 			>
 				<p

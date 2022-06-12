@@ -6,6 +6,9 @@ import TextField from "@mui/material/TextField";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 
+// TODO: Find the actual number of words covered in the entire program
+// TODO: Find the actual number of correct words covered in the entire program
+//
 const MAX_TIME: number = 10;
 const getText = () =>
 	`Sleep deprivation causes all sorts of challenges and problems When one get enough sleep mind work clearly Studies have shown that after staying awake for 24 hours ability to do simple math is greatly impaired Driving tired has been shown to be as bad as driving drunk Moods change depression anxiety and mania can be induced by lack of sleep As much as people try to do without enough sleep it is a wonder more crazy things happen in this world There was something in the tree It was difficult to tell from the ground but Rachael could see movement She squinted her eyes and peered in the direction of the movement trying to decipher exactly what she had spied The more she peered however the more she thought it might be a figment of her imagination Nothing seemed to move until the moment she began to take her eyes off the tree Then in the corner of her eye she would see the movement again and begin the process of staring again`
@@ -36,7 +39,7 @@ const style = {
 	top: "50%",
 	left: "50%",
 	transform: "translate(-50%, -50%)",
-	width: 150,
+	width: "auto",
 	bgcolor: "background.paper",
 	p: 4
 };
@@ -115,6 +118,10 @@ const Timer = (props: any) => {
 							  ).toFixed(0)}{" "}
 						WPM
 					</p>
+					<p># keystrokes = {noKeyStrokes}</p>
+					<p># minutes elapsed = {minutesElapsed}</p>
+					<p># total words covered = {totalWordsCovered}</p>
+					<p># correct words = {correctWords}</p>
 				</Box>
 			</Modal>
 		</div>
@@ -129,6 +136,8 @@ const TextFieldComponent = () => {
 	const [startCountYet, setStartCountYet] = useState(false);
 	const [countKeyStrokes, setCountKeyStrokes] = useState(0);
 	const [time, setTimer] = useState(0);
+	const [allWords, setAllWords] = useState(0);
+	const [correctWords, setCorrectWords] = useState(0);
 
 	const processInput = (e: string): void => {
 		console.log("text current length: ", text.current.length);

@@ -224,7 +224,7 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="absolute top-[130px] left-[10%] h-[70vh] max-h-[50%] w-[55vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%] bg-white rounded-2xl"
+			className="absolute top-[130px] left-[10%] h-auto max-h-[90%] w-[55vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%] bg-white rounded-2xl"
 		>
 			<div className="w-[45%] h-auto sm:w-full" id="timer">
 				<Timer
@@ -244,7 +244,7 @@ const TextFieldComponent = () => {
 			>
 				<p
 					id="displayedTest"
-					className="h-[50%] text-[2rem] sm:text-[1.2rem] text-center pt-14 sm:pt-2 sm:h-auto"
+					className="h-auto text-[2rem] sm:text-[1.2rem] text-center pt-14 sm:pt-2 sm:h-auto bg-orange-300"
 				>
 					{text.current.map((word, index) => {
 						return (
@@ -257,7 +257,10 @@ const TextFieldComponent = () => {
 					})}
 				</p>
 
-				<div className="h-[50%] flex" id="textFieldAndRefreshButton">
+				<div
+					className="h-[50%] flex bg-teal-700 mb-5"
+					id="textFieldAndRefreshButton"
+				>
 					<div className="w-[80%] p-0 m-0" id="textField">
 						<TextField
 							type="text"

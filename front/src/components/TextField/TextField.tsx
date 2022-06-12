@@ -137,13 +137,15 @@ const TextFieldComponent = () => {
 	const [countKeyStrokes, setCountKeyStrokes] = useState(0);
 	const [time, setTimer] = useState(0);
 	const [allWords, setAllWords] = useState(0);
-	const [correctWords, setCorrectWords] = useState(0);
+	const [allCorrectWords, setAllCorrectWords] = useState(0);
 
 	const processInput = (e: string): void => {
 		console.log("text current length: ", text.current.length);
 		console.log("active word index: ", activeWordIndex);
 
 		if (time === MAX_TIME) {
+			setAllWords(0);
+			setAllCorrectWords(0);
 			return;
 		}
 
@@ -152,6 +154,7 @@ const TextFieldComponent = () => {
 		}
 
 		if (e.endsWith(" ")) {
+			setAllWords((old) => old + 1);
 			console.log("after someone presses spacebar");
 			console.log(
 				"user input",
@@ -186,6 +189,11 @@ const TextFieldComponent = () => {
 				"and current word is:",
 				text.current[activeWordIndex] + "\n"
 			);
+
+			if (e.trim() === text.current[activeWordIndex]) {
+				setAllCorrectWords((old) => old + 1);
+			}
+
 			setCorrectWordArray((data) => {
 				const word = e.trim();
 				let newResult: any = [...data];
@@ -221,9 +229,9 @@ const TextFieldComponent = () => {
 			<div className="w-[45%] h-auto sm:w-full" id="timer">
 				<Timer
 					startCount={startCountYet}
-					correctWords={correctWordArray.filter(Boolean).length}
+					correctWords={allCorrectWords}
 					noKeyStrokes={countKeyStrokes}
-					totalWordsCovered={correctWordArray.length}
+					totalWordsCovered={allWords}
 					resetAppMethod={resetApp}
 					actualTime={time}
 					setActualTime={setTimer}

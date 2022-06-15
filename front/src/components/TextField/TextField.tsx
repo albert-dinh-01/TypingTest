@@ -258,7 +258,7 @@ const TextFieldComponent = () => {
 				</p>
 
 				<div
-					className="h-[50%] flex bg-teal-700 mb-5"
+					className="h-auto flex bg-teal-700 mb-5"
 					id="textFieldAndRefreshButton"
 				>
 					<div className="w-[80%] p-0 m-0" id="textField">

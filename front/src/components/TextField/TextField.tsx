@@ -224,9 +224,9 @@ const TextFieldComponent = () => {
 	return (
 		<div
 			id="textFieldContainer"
-			className="absolute top-[130px] left-[10%] h-auto max-h-[90%] w-[55vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%] bg-white rounded-2xl"
+			className="absolute top-[130px] left-[10%] h-auto max-h-[90%] w-[55vw] p-9 flex justify-evenly sm:grid sm:grid-cols-1 sm:max-h-[90%] sm:w-[90%] sm:left-[5%]  bg-white rounded-2xl"
 		>
-			<div className="w-[45%] h-auto sm:w-full" id="timer">
+			<div className="w-[50%] h-auto sm:w-full" id="timer">
 				<Timer
 					startCount={startCountYet}
 					correctWords={allCorrectWords}
@@ -239,7 +239,7 @@ const TextFieldComponent = () => {
 			</div>
 
 			<div
-				className="w-[45vw] h-[400px] sm:h-auto sm:w-[95%]"
+				className="w-[50%] h-[400px] sm:h-auto sm:w-[95%]"
 				id="typingContainer"
 			>
 				<p

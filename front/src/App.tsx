@@ -6,7 +6,7 @@ import WelcomeText from "./components/WelcomeText/WelcomeText";
 const App = () => {
 	return (
 		<div
-			className="relative p-0 m-0 bg-black top-0 w-full h-[900px] sm:grid sm:grid-cols-1 sm:bg-black"
+			className="relative p-0 m-0 bg-black top-0 w-full h-[100vh] sm:grid sm:grid-cols-1 sm:bg-black"
 			id="app"
 		>
 			<WelcomeText />

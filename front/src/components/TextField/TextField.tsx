@@ -137,9 +137,6 @@ const TextFieldComponent = () => {
 	const [allCorrectWords, setAllCorrectWords] = useState(0);
 
 	const processInput = (e: string): void => {
-		console.log("text current length: ", text.current.length);
-		console.log("active word index: ", activeWordIndex);
-
 		if (time === MAX_TIME) {
 			setAllWords(0);
 			setAllCorrectWords(0);
@@ -152,15 +149,7 @@ const TextFieldComponent = () => {
 
 		if (e.endsWith(" ")) {
 			setAllWords((old) => old + 1);
-			console.log("after someone presses spacebar");
-			console.log(
-				"user input",
-				userInput,
-				"and length of user input is",
-				userInput.length
-			);
 			if (activeWordIndex === text.current.length - 1) {
-				console.log("9th word");
 				setUserInput("");
 			} else {
 				setUserInput("");
@@ -168,24 +157,9 @@ const TextFieldComponent = () => {
 
 			if (activeWordIndex === text.current.length - 1) {
 				setActiveWordIndex(0);
-				console.log(
-					"active word index when the last element:",
-					activeWordIndex
-				);
 			} else {
 				setActiveWordIndex((index) => index + 1);
-				console.log(
-					"active word index when it is not the last element is:",
-					activeWordIndex
-				);
 			}
-
-			console.log(
-				"word you typed is:",
-				e.trim(),
-				"and current word is:",
-				text.current[activeWordIndex] + "\n"
-			);
 
 			if (e.trim() === text.current[activeWordIndex]) {
 				setAllCorrectWords((old) => old + 1);
@@ -203,7 +177,6 @@ const TextFieldComponent = () => {
 				setCorrectWordArray([]);
 			}
 		} else {
-			console.log("not a space, no spaces allowed!");
 			setUserInput(e);
 		}
 	};
@@ -241,7 +214,7 @@ const TextFieldComponent = () => {
 			>
 				<p
 					id="displayedTest"
-					className="h-auto text-[2rem] sm:text-[1.2rem] text-center pt-14 sm:pt-2 sm:h-auto bg-orange-300"
+					className="h-auto text-[2rem] sm:text-[1.2rem] text-center pt-14 sm:pt-2 sm:h-auto"
 				>
 					{text.current.map((word, index) => {
 						return (
@@ -254,10 +227,7 @@ const TextFieldComponent = () => {
 					})}
 				</p>
 
-				<div
-					className="h-auto flex bg-teal-700 mb-5"
-					id="textFieldAndRefreshButton"
-				>
+				<div className="h-auto flex mb-5" id="textFieldAndRefreshButton">
 					<div className="w-[80%] p-0 m-0" id="textField">
 						<TextField
 							type="text"

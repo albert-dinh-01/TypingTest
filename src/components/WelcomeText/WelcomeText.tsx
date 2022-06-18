@@ -80,7 +80,7 @@ const WelcomeText = () => {
 								- Styled with Tailwind CSS
 							</li>
 							<li className="text-left" id="deployment">
-								- Deployed with AWS Amlify
+								- Deployed with Netlify
 							</li>
 						</ul>
 					</Box>

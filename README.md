@@ -1,13 +1,46 @@
 # Typing Speed Measure
 
-Typing Speed Measure is a web application that measures your typing speed
+Typing Speed Measure is a web application that allows users to measure and track their typing speed. It provides an engaging interface to practice typing while delivering accurate words-per-minute (WPM) calculations.
 
-## Deployed app location
+## 🚀 Deployed Application
 
-[Deployed Typing Speed App](https://peaceful-muffin-0fc3d6.netlify.app/)
+Check out the live application here:  
+[Typing Speed Measure](https://peaceful-muffin-0fc3d6.netlify.app/)
 
-## Technologies used
+## 🛠️ Technologies Used
 
-- TypeScript React
-- Tailwind CSS
-- Deployed with Netlify
+- **Frontend**: TypeScript with React
+- **Styling**: Tailwind CSS
+- **Deployment**: Netlify
+
+## 📄 Features
+
+- Tracks and displays your real-time typing speed (WPM).
+- Clean and responsive design for both desktop and mobile.
+- Smooth typing experience with instant feedback.
+
+## 🔧 How to Run Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone git@github.com:albert-dinh-01/TypingTest.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd TypingTest
+   ```
+
+3. Install dependencies:
+
+   ```bash
+    npm install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```

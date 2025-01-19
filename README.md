@@ -2,6 +2,8 @@
 
 Typing Speed Measure is a web application that allows users to measure and track their typing speed. It provides an engaging interface to practice typing while delivering accurate words-per-minute (WPM) calculations.
 
+![Typing Speed Demo](assets/typing_speed_demo.gif)
+
 ## 🚀 Deployed Application
 
 Check out the live application here:  
@@ -44,3 +46,8 @@ Check out the live application here:
    ```bash
    npm start
    ```
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute this project as long as proper credit is given to the original author.

@@ -4,7 +4,7 @@ Typing Speed Measure is a web application that measures your typing speed
 
 ## Deployed app location
 
-<https://peaceful-muffin-0fc3d6.netlify.app/>
+[Deployed App](https://peaceful-muffin-0fc3d6.netlify.app/){:target="\_blank"}
 
 ## Technologies used
 
